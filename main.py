@@ -22,14 +22,13 @@ def generate_password(length,nums, special_chars, uppercase, lowercase):
             (nums, r'\d'),
             (lowercase, r'[a-z]'),
             (uppercase, r'[A-Z]'),
-            (special_chars, r'')
+            (special_chars, fr'[{symbols}]')')
         ]
+        # Check constraints
+        for constraint, pattern in constraints:
+            re.findall(pattern, password)
 
     return password
 
 # new_password = generate_password(8)
 # print(new_password)
-
-pattern = '[a-z]t'
-quote = 'Not all those who wander are lost.'
-print(re.search(pattern,quote))
